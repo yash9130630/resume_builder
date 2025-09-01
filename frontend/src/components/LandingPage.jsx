@@ -92,8 +92,10 @@ const LandingPage = () => {
               variant="outline" 
               size="lg"
               className="px-8 py-3 text-lg border-2 hover:bg-gray-50 transition-all duration-300"
+              onClick={() => navigate('/optimize')}
             >
-              View Templates
+              <Zap className="mr-2 h-5 w-5" />
+              AI Optimize Resume
             </Button>
           </div>
 
