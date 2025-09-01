@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import ResumeEditor from "./components/ResumeEditor";
+import ResumeOptimizer from "./components/ResumeOptimizer";
 import { Toaster } from "./components/ui/toaster";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/editor" element={<ResumeEditor />} />
           <Route path="/editor/:templateId" element={<ResumeEditor />} />
+          <Route path="/optimize" element={<ResumeOptimizer />} />
         </Routes>
         <Toaster />
       </BrowserRouter>
