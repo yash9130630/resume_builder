@@ -10,6 +10,8 @@ from typing import List
 import uuid
 from datetime import datetime
 
+# Import optimization routes
+from optimization_routes import router as optimization_router
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -52,13 +54,16 @@ async def get_status_checks():
     status_checks = await db.status_checks.find().to_list(1000)
     return [StatusCheck(**status_check) for status_check in status_checks]
 
-# Include the router in the main app
+# Include the optimization router
+app.include_router(optimization_router)
+
+# Include the main API router
 app.include_router(api_router)
 
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
