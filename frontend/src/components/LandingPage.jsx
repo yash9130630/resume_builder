@@ -225,14 +225,25 @@ const LandingPage = () => {
             <span className="text-xl font-bold">ResumeBuilder</span>
           </div>
           <p className="text-gray-400 mb-6">Build your career with confidence</p>
-          <Button 
-            size="lg"
-            className="bg-blue-600 hover:bg-blue-700 text-white"
-            onClick={handleStartBuilding}
-          >
-            Get Started Free
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white"
+              onClick={handleStartBuilding}
+            >
+              Get Started Free
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button 
+              variant="outline"
+              size="lg"
+              className="border-white text-white hover:bg-white hover:text-gray-900"
+              onClick={() => navigate('/optimize')}
+            >
+              <Zap className="mr-2 h-5 w-5" />
+              Try AI Optimizer
+            </Button>
+          </div>
         </div>
       </footer>
     </div>
