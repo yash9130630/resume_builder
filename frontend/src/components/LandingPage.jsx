@@ -32,8 +32,8 @@ const LandingPage = () => {
     },
     {
       icon: <FileText className="h-6 w-6" />,
-      title: "Drag & Drop",
-      description: "Reorder sections easily with intuitive drag and drop"
+      title: "AI Optimization",
+      description: "Optimize existing resumes with AI for better ATS compatibility"
     }
   ];
 
