@@ -6,7 +6,7 @@ import uuid
 import os
 from datetime import datetime
 import shutil
-from .optimization_service import OptimizationService
+from optimization_service import OptimizationService
 from motor.motor_asyncio import AsyncIOMotorClient
 import logging
 
