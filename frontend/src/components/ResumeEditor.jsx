@@ -109,24 +109,33 @@ const ResumeEditor = () => {
   const handleExport = async () => {
     setIsExporting(true);
     try {
-      const pdfUrl = await mockPdfExport(resumeData, selectedTemplate);
-      
-      // Create download link
+      const response = await axios.post(`${API}/export/pdf`, {
+        resume_data: resumeData,
+        template_id: selectedTemplate
+      }, {
+        responseType: 'blob',
+      });
+
+      // Create blob and download link
+      const blob = new Blob([response.data], { type: 'application/pdf' });
+      const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
-      link.href = pdfUrl;
+      link.href = url;
       link.download = `resume_${selectedTemplate}.pdf`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
       
       toast({
         title: "PDF Downloaded",
         description: "Your resume has been exported as PDF.",
       });
     } catch (error) {
+      console.error('Export error:', error);
       toast({
         title: "Export Failed", 
-        description: "Failed to export PDF. Please try again.",
+        description: error.response?.data?.detail || "Failed to export PDF. Please try again.",
         variant: "destructive"
       });
     } finally {
