@@ -18,7 +18,7 @@ import {
   ArrowLeft,
   Loader2
 } from "lucide-react";
-import { mockResumeData, templates, mockPdfExport } from "../mockData";
+import { mockResumeData, templates } from "../mockData";
 import { useToast } from "../hooks/use-toast";
 import ResumePreview from "./ResumePreview";
 
